@@ -23,8 +23,7 @@ min_vertex = min(all_vertices)
 max_vertex = max(all_vertices)
 
 if min_vertex == 1:
-    # Вершины с 1
-    graph_size = max_vertex + 1  # индексы 0..max_vertex
+    graph_size = max_vertex + 1  
     graph = [[] for _ in range(graph_size)]
 
     for u, v in edges:
@@ -42,7 +41,6 @@ if min_vertex == 1:
     visited[start] = True
 
 else:
-    # Вершины с 0
     graph_size = n
     graph = [[] for _ in range(n)]
 
@@ -54,7 +52,7 @@ else:
     for i in range(min_vertex, n+min_vertex):
         graph[i].sort()
 
-    # Проверяем старт
+
     if start < 0 or start >= n:
         print(f"Ошибка: стартовая вершина {start} не существует")
         exit()
@@ -62,7 +60,6 @@ else:
     visited = [False] * n
     visited[start] = True
 
-# BFS
 queue = [start]
 front = 0
 result = []
@@ -86,4 +83,5 @@ while front < len(queue):
 print("Порядок обхода BFS:")
 print(result_str)
 with open('output.txt', 'w') as f:
+
     f.write(result_str)
